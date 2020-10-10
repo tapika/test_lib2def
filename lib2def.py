@@ -40,6 +40,10 @@ def dumpbin_get_symbols(lib):
 # Mangling scheme could be looked in clang/lib/AST/MicrosoftMangle.cpp
 #
 def should_keep_microsoft_symbol(symbol):
+    # We are intrested only in our functionality, not standard libraries
+    if not re.search('mynamespace', symbol):
+        return None
+
     # mangleVariableEncoding => public static or global member
     if re.search('@@[23]', symbol):
         return symbol + " DATA"
@@ -48,8 +52,14 @@ def should_keep_microsoft_symbol(symbol):
 
 def extract_symbols(lib):
     symbols = dict()
-    for symbol in dumpbin_get_symbols(lib):
-        symbol = should_keep_microsoft_symbol(symbol)
+    for symbol1 in dumpbin_get_symbols(lib):
+        symbol = should_keep_microsoft_symbol(symbol1)
+        
+        #if symbol:
+        #    print("accepting: " + symbol)
+        #else:
+        #    print("rejecting: " + symbol1)
+        
         if symbol:
             symbols[symbol] = 1 + symbols.setdefault(symbol,0)
     return symbols
