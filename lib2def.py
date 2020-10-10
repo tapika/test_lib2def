@@ -16,7 +16,13 @@ import argparse
 # Windows, waiting for the entire output to be ready can take a significant
 # amount of time.
 def dumpbin_get_symbols(lib):
-    process = subprocess.Popen(['C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Tools\\MSVC\\14.27.29110\\bin\\Hostx64\\x64\\dumpbin.exe','/symbols',lib], bufsize=1,
+    dumpbin_exe = 'c:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Tools\\MSVC\\14.27.29110\\bin\\Hostx64\\x64\\dumpbin.exe'
+
+    if not os.path.isfile(dumpbin_exe):
+        print("error: dumpbin utility not found, please reconfigure path\n Path: " + dumpbin_exe)
+        exit(2)
+    
+    process = subprocess.Popen([dumpbin_exe,'/symbols',lib], bufsize=1,
                                stdout=subprocess.PIPE, stdin=subprocess.PIPE,
                                universal_newlines=True)
     process.stdin.close()
@@ -74,7 +80,7 @@ if __name__ == '__main__':
                     break
         if not any([lib.endswith(s) for s in suffixes]):
             print("Don't know what to do with argument "+lib, file=sys.stderr)
-            exit(1)
+            exit(3)
         libs.append(lib)
 
 
