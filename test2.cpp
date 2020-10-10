@@ -5,10 +5,12 @@ using namespace std;
 
 void main(void)
 {
-    cout << llvm::TimePassesIsEnabled;
+    //cout << llvm::TimePassesIsEnabled;
 
-    llvm::TimePassesIsEnabled = false;
-    
-    cout << llvm::TimePassesIsEnabled;
+    //llvm::TimePassesIsEnabled = false;
+    //
+    //cout << llvm::TimePassesIsEnabled;
+
+    mynamespace::TestFunction();
 
 }

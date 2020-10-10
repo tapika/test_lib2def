@@ -12,9 +12,10 @@
     #define DECLEXP
 #endif
 
-namespace llvm
+namespace mynamespace
 {
     extern DECLEXP bool TimePassesIsEnabled;
 
+    bool TestFunction(void);
 }
 
