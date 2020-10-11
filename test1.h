@@ -1,7 +1,7 @@
 #pragma once
 
 #ifdef EXPORT_VIA_DECLSPEC
-    #ifdef TEST1
+    #ifdef TEST1_EXPORTS
     #define DECLEXP __declspec(dllexport)
     #else
     #define DECLEXP __declspec(dllimport)

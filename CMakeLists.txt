@@ -57,7 +57,7 @@ if(${use_def_file})
         ${staticLibSrcs}
         lib2def.py
     )
-    target_compile_definitions(test1 PUBLIC TEST1)
+    target_compile_definitions(test1 PRIVATE TEST1_EXPORTS)
     add_library(test1_dll SHARED 
         test1_dll.cpp
         ${def_file}
@@ -72,7 +72,7 @@ else()
         ${staticLibSrcs}
     )
 
-    target_compile_definitions(test1_dll PUBLIC TEST1)
+    target_compile_definitions(test1_dll PRIVATE TEST1_EXPORTS)
 
 endif()
 
