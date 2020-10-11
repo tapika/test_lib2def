@@ -1,17 +1,19 @@
+#include "test1.h"
 #include <iostream>
 
 using namespace std;
 
+int g_GlobalVar = 3;
+
+
 namespace mynamespace
 {
-    bool TimePassesIsEnabled = true;
+    bool DECLEXP TimePassesIsEnabled = true;
 
-
-    bool TestFunction(void)
+    bool DECLEXP TestFunction(void)
     {
         cout << "mynamespace::TestFunction() called" << endl;
         return true;
     }
-
 }
 

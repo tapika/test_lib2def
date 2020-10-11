@@ -6,10 +6,12 @@ using namespace std;
 void main(void)
 {
     //cout << mynamespace::TimePassesIsEnabled;
-
     //mynamespace::TimePassesIsEnabled = false;
+    //cout << mynamespace::TimePassesIsEnabled << endl;
 
-    //cout << mynamespace::TimePassesIsEnabled;
+    //cout << g_GlobalVar;
+    //g_GlobalVar = false;
+    //cout << g_GlobalVar << endl;
 
     mynamespace::TestFunction();
 

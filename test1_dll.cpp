@@ -1,6 +1,6 @@
 
 
-void dummy()
+void __declspec(dllexport) dummy()
 {
 
 }

@@ -55,10 +55,10 @@ def extract_symbols(lib):
     for symbol1 in dumpbin_get_symbols(lib):
         symbol = should_keep_microsoft_symbol(symbol1)
         
-        #if symbol:
-        #    print("accepting: " + symbol)
+        if symbol:
+            print("accepting symbol: " + symbol)
         #else:
-        #    print("rejecting: " + symbol1)
+        #    print("rejecting symbol: " + symbol1)
         
         if symbol:
             symbols[symbol] = 1 + symbols.setdefault(symbol,0)
@@ -66,7 +66,7 @@ def extract_symbols(lib):
 
 
 if __name__ == '__main__':
-    # print ("Executed command:\n  >" + ' '.join(sys.argv) + "\n")
+    print ("Executed command:\n  >" + ' '.join(sys.argv) + "\n")
 
     parser = argparse.ArgumentParser(description='Extracts symbols from static library and saves as a .def file')
     parser.add_argument('libs', metavar='lib', type=str, nargs='+', help='libraries to extract symbols from')
