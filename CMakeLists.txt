@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.17)
 
 # Switch ON/OFF to test different types of linkage
-#set(use_def_file ON)
-set(use_def_file OFF)
+set(use_def_file ON)
+#set(use_def_file OFF)
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 set_property(GLOBAL PROPERTY DISABLE_DEPRECATION_WARNING ON)

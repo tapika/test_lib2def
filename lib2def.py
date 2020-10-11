@@ -40,6 +40,10 @@ def dumpbin_get_symbols(lib):
 # Mangling scheme could be looked in clang/lib/AST/MicrosoftMangle.cpp
 #
 def should_keep_microsoft_symbol(symbol):
+    # Variables with 'g_' prefix (globals)
+    if re.search('g_', symbol):
+        return symbol + " DATA"
+
     # We are intrested only in our functionality, not standard libraries
     if not re.search('mynamespace', symbol):
         return None
