@@ -116,4 +116,9 @@ if __name__ == '__main__':
 
     for k,v in list(symbols.items()):
         print(k, file=outfile)
+        #if k.endswith(" DATA"):
+        #    print("__imp_" + k, file=outfile)
+
+    #print("SECTIONS", file=outfile)
+    #print("   .idata        READ WRITE", file=outfile)
 
